@@ -19,8 +19,8 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.37.0"
-  sha256 "c60a174e52634b36660211646fda97dfa2afb7814929dd7a28aab5d8c2d36826"
+  version "0.38.0"
+  sha256 "7cf0ad54db51ae94bca9c071ece250d7eed7950f482d7fdeb7f5f9dc3ff8ed30"
 
   url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
@@ -77,11 +77,4 @@ cask "waner" do
     "~/.waner/gui",
     "~/Library/Saved Application State/com.zenova.waner-desktop.savedState",
   ]
-
-  caveats <<~EOS
-    本构建为 ad-hoc 签名（尚未通过 Apple 公证）。首次打开 婉儿.app 请右键 → 打开；
-    若终端里的 waner 被 Gatekeeper 拦截，执行：
-      xattr -dr com.apple.quarantine "#{appdir}/婉儿.app"
-    或重新安装时加 --no-quarantine：brew reinstall --cask --no-quarantine waner
-  EOS
 end
