@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# 第一行必须是这条魔法注释：Homebrew 2026-09-06 起（brew core 29b882c90e
+# 之后）对独立 cask 文件也套 RuboCop 的 Style/FrozenStringLiteralComment，
+# 缺了它 `brew style --cask` 直接判 offense，render_homebrew_cask 会 die，
+# 把整个 ship 卡在最后一步（产物已全部构建完）。
 # waner.rb.tmpl — rendered by scripts/release-cli.sh's render_homebrew_cask
 # into dist/release/v<version>/homebrew/Casks/waner.rb, then pushed to the
 # Homebrew tap (Minrit/homebrew-waner, see WANER_HOMEBREW_TAP) by
@@ -19,8 +25,8 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.40.11"
-  sha256 "c5f16e27f93c5f5f632f302215f1a42e65bf14d2e4d2d563ee263dfef8136004"
+  version "0.40.13"
+  sha256 "403d68fc071954aa140972b1c74f83e0eb5db2311245c8600c87ca61504c9925"
 
   url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
