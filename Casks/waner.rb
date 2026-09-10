@@ -1,4 +1,11 @@
+# typed: strict
 # frozen_string_literal: true
+
+# 开头这两条魔法注释顺序固定，且都是 `brew style --cask` 的硬要求：
+# Sorbet 的 `# typed:` 必须在第一行（2026-09-10 brew 升级后新增，
+# 缺了判 offense），`frozen_string_literal` 紧随其后（2026-09-06 那次
+# 加的，见下）。判据以 `HOMEBREW_DEVELOPER=1 brew style --cask --fix`
+# 的输出为准——手猜顺序会越改越多，本文件因此被卡过两次。
 
 # 第一行必须是这条魔法注释：Homebrew 2026-09-06 起（brew core 29b882c90e
 # 之后）对独立 cask 文件也套 RuboCop 的 Style/FrozenStringLiteralComment，
@@ -25,8 +32,8 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.40.19"
-  sha256 "f6d51bd3926a3e7a5726d48fee782c2aae59ba98179295ca95855daa92c2f221"
+  version "0.40.20"
+  sha256 "e3840f7a087eda2f4c54c84263971a3fa71e4afb20a016a9ba5eb2a5347f7084"
 
   url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
@@ -41,8 +48,8 @@ cask "waner" do
   end
 
   auto_updates true
-  depends_on macos: :ventura
   depends_on arch: :arm64
+  depends_on macos: :ventura
 
   app "婉儿.app"
   binary "#{appdir}/婉儿.app/Contents/Resources/waner-entry", target: "waner"
