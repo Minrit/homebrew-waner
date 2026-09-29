@@ -32,16 +32,16 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.41.0"
-  sha256 "a9e0ebce3444abaf7bad557c17a9c73a5e9cc277f5b0d581839a69e99ae51228"
+  version "0.42.0"
+  sha256 "2d29bd5d76cd9a2ec819769fdd2c2a81ab96c7431869752ec39a8a6eb4ea78f5"
 
-  url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner-v#{version}-aarch64-apple-darwin.dmg"
+  url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner/#{version}/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
   desc "Secure AI agent runtime with persistent memory and sandboxed extensions"
   homepage "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner.html"
 
   livecheck do
-    url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner-manifest.json"
+    url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner/manifest.json"
     strategy :json do |json|
       json.fetch("files").find { |file| file["target"] == "aarch64-apple-darwin" }&.fetch("version")
     end
