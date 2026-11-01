@@ -32,8 +32,8 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.55.0"
-  sha256 "1ed50aeffdcdb948360fb0ed5153f92fc945d1333f3e5745cd3b42ef776d54f6"
+  version "0.56.0"
+  sha256 "7df8e032d80e3f54d3f80b789118811359ee6bcb84ad5b75a484ff5bc9c1cfad"
 
   url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner/#{version}/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
