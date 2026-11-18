@@ -1,15 +1,15 @@
 # typed: strict
 # frozen_string_literal: true
 
-# 开头这两条魔法注释顺序固定，且都是 `brew style --cask` 的硬要求：
+# 开头这两条魔法注释顺序固定，且都是 `brew style` 的硬要求：
 # Sorbet 的 `# typed:` 必须在第一行（2026-09-10 brew 升级后新增，
 # 缺了判 offense），`frozen_string_literal` 紧随其后（2026-09-06 那次
-# 加的，见下）。判据以 `HOMEBREW_DEVELOPER=1 brew style --cask --fix`
+# 加的，见下）。判据以 `HOMEBREW_DEVELOPER=1 brew style --fix <文件>`
 # 的输出为准——手猜顺序会越改越多，本文件因此被卡过两次。
 
 # 第一行必须是这条魔法注释：Homebrew 2026-09-06 起（brew core 29b882c90e
 # 之后）对独立 cask 文件也套 RuboCop 的 Style/FrozenStringLiteralComment，
-# 缺了它 `brew style --cask` 直接判 offense，render_homebrew_cask 会 die，
+# 缺了它 `brew style` 直接判 offense，render_homebrew_cask 会 die，
 # 把整个 ship 卡在最后一步（产物已全部构建完）。
 # waner.rb.tmpl — rendered by scripts/release-cli.sh's render_homebrew_cask
 # into dist/release/v<version>/homebrew/Casks/waner.rb, then pushed to the
@@ -32,16 +32,16 @@
 # and a cask uninstall/zap must not silently delete a user's memory or
 # credentials.
 cask "waner" do
-  version "0.63.0"
-  sha256 "b185ec235be13b97418c20328961f0897e230146d20b7ea11a05d5752cea0c59"
+  version "0.70.0"
+  sha256 "ff1254a52e4b5d7b5bb005d480526bd8fb61bd2900e739e4ff6b57d48026b6bc"
 
-  url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner/#{version}/waner-v#{version}-aarch64-apple-darwin.dmg"
+  url "https://download.doushangmin.cn/installer/waner/#{version}/waner-v#{version}-aarch64-apple-darwin.dmg"
   name "婉儿 (Waner)"
   desc "Secure AI agent runtime with persistent memory and sandboxed extensions"
-  homepage "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner.html"
+  homepage "https://download.doushangmin.cn/installer/waner.html"
 
   livecheck do
-    url "https://cdn.zstack.io/product_downloads/Cloud_suite/AI/waner/manifest.json"
+    url "https://download.doushangmin.cn/installer/waner/manifest.json"
     strategy :json do |json|
       json.fetch("files").find { |file| file["target"] == "aarch64-apple-darwin" }&.fetch("version")
     end
@@ -78,10 +78,12 @@ cask "waner" do
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-shell-setup.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-skills.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-status.1"
+  manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-thread.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-tool.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-tools.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-tui.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-update.1"
+  manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-usage.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner-worktree.1"
   manpage "#{appdir}/婉儿.app/Contents/Resources/share/man/man1/waner.1"
 
